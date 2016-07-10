@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Todo;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,13 +10,17 @@ use Symfony\Component\HttpFoundation\Request;
 class ToDoController extends Controller
 {
     /**
-     * @Route("/todos", name="todo_list")
+     * @Route("/", name="todo_list")
      */
     public function listAction()
     {
-
+        $todos = $this->getDoctrine()
+            ->getRepository('AppBundle:Todo')
+            ->findAll();
         // replace this example code with whatever you need
-        return $this->render('default/todo/list.html.twig');
+        return $this->render('todo/index.html.twig', array(
+            'todos' => $todos
+        ));
     }
 
     /**
@@ -25,7 +30,7 @@ class ToDoController extends Controller
     {
 
         // replace this example code with whatever you need
-        return $this->render('default/todo/create.html.twig');
+        return $this->render('todo/create.html.twig');
     }
 
     /**
@@ -35,7 +40,7 @@ class ToDoController extends Controller
     {
 
         // replace this example code with whatever you need
-        return $this->render('default/todo/edit.html.twig');
+        return $this->render('todo/edit.html.twig');
     }
 
     /**
@@ -45,6 +50,6 @@ class ToDoController extends Controller
     {
 
         // replace this example code with whatever you need
-        return $this->render('default/todo/details.html.twig');
+        return $this->render('todo/details.html.twig');
     }
 }
