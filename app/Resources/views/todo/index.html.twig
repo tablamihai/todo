@@ -15,9 +15,9 @@
             <th scope="row">{{ todo.id }}</th>
             <td>{{ todo.name }}</td>
             <td>{{ todo.dueDate|date("F j, Y, g:i a") }}</td>
-            <td><a href="/todo/details/1" class="btn btn-primary">View</a></td>
-            <td><a href="/todo/edit/1" class="btn btn-default">Edit</a></td>
-            <td><a href="/todo/delete/1" class="btn btn-danger">Delete</a></td>
+            <td><a href="/todos/details/1" class="btn btn-primary">View</a></td>
+            <td><a href="/todos/edit/1" class="btn btn-default">Edit</a></td>
+            <td><a href="/todos/delete/1" class="btn btn-danger">Delete</a></td>
         </tr>
             {% endfor %}
         </tbody>
